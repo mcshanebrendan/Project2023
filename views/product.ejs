@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Page</title>
+  <style>
+    /* css styling for page */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f4f4f4;
+    }
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    .main-content {
+      padding: 20px;
+      padding-bottom: 70px; /* Extra padding to push content above the footer */
+      min-height: 400px;
+    }
+    .footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative; /* Footer is part of the document flow */
+      width: 100%;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 3px solid black;
+    }
+    th, td {
+      border: 3px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    tr.separator td {
+      border-top: 3px solid black;
+    }
+    tr.centered td {
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+    }
+    tr.light-grey th {
+      background-color: lightgrey;
+    }
+  </style>
+</head>
+<body>
+  <!-- navbar for directing you to different pages -->
+  <div class="navbar">
+    <a href="/">Home</a> <!-- Added Home link -->
+    <a href="/product">Products</a>
+    <a href="/store">Stores</a>
+    <a href="/storeProduct">Store Products</a>
+    <a href="/managersMongoDB">Managers</a>
+    <a href="/addStore">Add Store</a>
+  </div>
+
+  <div class="main-content">
+    <h1>Product EJS File</h1>
+    
+    <table>
+      <tr class="centered" style="background-color: lightblue; text-align: center;">
+        <td colspan="3"><h3>Products</h3></td>
+      </tr>
+      <tr class="light-grey">
+        <th>Product ID (PID)</th>
+        <th>Product Description</th>
+        <th>Supplier</th>
+      </tr>
+      <% product.forEach((productData) => { %>
+        <tr>
+          <td><%= productData.pid %></td>
+          <td><%= productData.productdesc %></td>
+          <td><%= productData.supplier %></td>
+        </tr>
+        <tr class="separator"></tr>
+      <% }) %>
+    </table>
+  </div>
+  <!-- Add the "Go Back to Home Page" button -->
+  <a href="/" style="text-decoration: none;">
+    <button style="padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer;">
+      Go Back to Home Page
+    </button>
+  </a>
+  <div class="footer">
+    <p>Management System - Developed by Brendan McShane</p>
+  </div>
+</body>
+</html>

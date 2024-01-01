@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managers MongoDB Data</title>
+  <style>
+    /* css styling for page */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f4f4f4;
+    }
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+    .main-content {
+      padding: 20px;
+      min-height: 400px; /* Adjust as needed */
+    }
+    .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px; /* Adjust as needed to create space */
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      background-color: #fff;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- navbar for directing you to different pages -->
+  <div class="navbar">
+    <a href="/">Home</a> <!-- Added Home link -->
+    <a href="/product">Products</a>
+    <a href="/store">Stores</a>
+    <a href="/storeProduct">Store Products</a>
+    <a href="/managersMongoDB">Managers</a>
+    <a href="/addStore">Add Store</a>
+  </div>
+
+  <div class="main-content">
+    <h1>Managers MongoDB Data</h1>
+    <ul>
+      <% data.forEach(managerData => { %>
+        <li>
+          <strong>Manager ID:</strong> <%= managerData._id %><br>
+          <strong>Name:</strong> <%= managerData.name %><br>
+          <strong>Salary:</strong> <%= managerData.salary %><br>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <!-- Add the "Go Back to Home Page" button -->
+  <a href="/" style="text-decoration: none;">
+    <button style="padding: 10px 20px; background-color: #333; color: white; border: none; cursor: pointer;">
+      Go Back to Home Page
+    </button>
+  </a>
+
+  <div class="footer">
+    <p>Management System - Developed by Brendan McShane</p>
+  </div>
+</body>
+</html>
